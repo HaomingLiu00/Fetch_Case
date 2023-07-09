@@ -1,2 +1,4 @@
 # Fetch_Case
-This is a ReadMe file
+## Diagram a New Structured Relational Data Model
+I diagram this data model as below:
+
