@@ -1,9 +1,13 @@
 # Fetch_Case
-## Diagram a New Structured Relational Data Model
+
+Thank you for reviewing my coding challenge! You can find all the answers and code in the provided readme file, which is also available in this repository. I used MySQL and Python to complete this challenge.
+
+## Part 1: Diagram a New Structured Relational Data Model
 I diagram this data model as below:
 ![Alt text](https://github.com/HaomingLiu00/Fetch_Case/blob/main/DataModel.png)
 
 ### Tables and Primary Key
+
 The sample dataset consists of three types of data: receipts, users, and brands. 
 
 For users and brands, each feature is stored as a column in their respective tables. The primary key for the Users table is userId, and for the Brands table, it is brandId.
@@ -13,19 +17,26 @@ Regarding the receipt data, there is a feature called rewardsReceiptItemList, wh
 This design allows for efficient storage and retrieval of receipt-related information.
 
 ### Joinable Keys
+
 (1) Receipts and Users can join together on userId in Receipts
 
 (2) Brands and rewardsReceiptItem can join together on barcode
 
 (3) rewardsReceiptItem and Receipts can join together on receiptId
 
-### Potential Index
+### Potential Index & Partition
 
-### data Type
+To optimize the query performance and data access for the tables in our database, we can consider implementing appropriate indexes and partitions. The decision to create indexes should be based on the specific queries and usage patterns of the application. In Part 4, I will request additional information from the business leader to determine the specific indexes and partitions that would best optimize the data assets and improve query efficiency.
 
 ### Other questions
 
-## Second: Query for predetermined question
+(1) The current time in the JSON file is in timestamp format and needs to be converted into a human-readable date and time format.
+
+(2) When creating tables, I would carefully consider the nature of the data and select appropriate data types to optimize storage and performance.
+
+
+## Part 2:  Query for predetermined question
+
 ```sql
 # What are the top 5 brands by receipts scanned for most recent month?
 
@@ -57,9 +68,9 @@ FROM Receipts r
 GROUP BY rewardsReceiptStatus;
 ```
 
-## Evaluate Data Quality Issues in the Data Provided
+## Part 3: Evaluate Data Quality Issues in the Data Provided
 
-After reviewing the data in the JSON file, I will check following aspects to address potential issues:
+After reviewing the data in the JSON file, I checked following aspects to address potential issues:
 
 (1) Verify if there are any columns that contain NULL values;
 
@@ -203,7 +214,7 @@ brand_insert_query = '''
 ```
 
 
-### Check the Data Quality
+### Step2: Check the Data Quality with MySQL
 
 **Detect Null Vaules**
 ```sql
@@ -272,7 +283,7 @@ HAVING COUNT(*) > 1;
 No duplicate record is detected.
 
 
-## Fourth: Communicate with Stakeholders
+## Part 4: Communicate with Stakeholders
 
 
 Dear Busness Leader,
@@ -295,9 +306,9 @@ Additionally, I have noticed that some of the attributions in brands include tes
 
 Additionally, I would like to gather some information to optimize our data assets and enhance query efficiency.
 
-Business Goal and Focus: To align our efforts with the business objectives, I would like to understand which specific information or details regarding customer receipt transactions are of utmost interest to you. By identifying the key areas of focus, we can tailor our data analysis and reporting to provide the most valuable insights that align with your goals.
+**Business Goal and Focus:** To align our efforts with the business objectives, I would like to understand which specific information or details regarding customer receipt transactions are of utmost interest to you. By identifying the key areas of focus, we can tailor our data analysis and reporting to provide the most valuable insights that align with your goals.
 
-Time Scope of Data Retrieval: It would be helpful to know the typical time scope or range within which you usually retrieve or access the data. This information will assist us in optimizing data retrieval strategies and designing efficient queries that align with your preferred time frames. Understanding the specific time periods of interest will enable us to streamline data management processes and improve query performance.
+**Time Scope of Data Retrieval:** It would be helpful to know the typical time scope or range within which you usually retrieve or access the data. This information will assist us in optimizing data retrieval strategies and designing efficient queries that align with your preferred time frames. Understanding the specific time periods of interest will enable us to streamline data management processes and improve query performance.
 
 By addressing these questions, we can enhance the overall performance of our data assets, ensure that our analyses are aligned with your business objectives, and optimize data management practices.
 
