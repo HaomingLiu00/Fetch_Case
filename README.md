@@ -67,6 +67,8 @@ After reviewing the data in the JSON file, I will check following aspects to add
 
 (3) Validate the data to ensure it adheres to the expected format. For instance, validate barcode values for correctness and verify if categoryCode values align with their corresponding categories.
 
+### Step1: from a JSON file into database tables ( Brands table as an example)
+
 I use Python to evaluate the data quality by inserting data from a JSON file into database tables. In the following code, I created a brands table as an example:
 
 **Handling the process of inserting data from a JSON file into a MySQL database table**
@@ -108,12 +110,14 @@ if __name__ == "__main__":
     connection = pymysql.connect(
         host='localhost',
         user='root',
-        password='59348649',
+        password='my_password',
         database='mysql'
     )
     cursor = connection.cursor()
     brand_handler("./data/brands.json")
 ```
+
+
 **Extract specific fields from the given JSON data and assign them to corresponding attributes of the Brand object.**
 
 ```python
@@ -165,6 +169,7 @@ class Brand:
             self.topBrand = None
 ```
 
+
 **Create tables and insert data** 
 ```python
 brand_create_table_query = '''
@@ -196,3 +201,116 @@ brand_insert_query = '''
         )
         '''
 ```
+
+
+### Check the Data Quality
+
+**Detect Null Vaules**
+```sql
+# Null Value
+#Report: 2448
+SELECT 
+	COUNT(*) AS null_count, 
+	topBrand
+FROM mysql.brand
+WHERE topBrand IS NULL
+GROUP BY topBrand;
+
+
+#Report: 936
+SELECT 
+	COUNT(*) AS null_count, 
+	brandCode
+FROM mysql.brand
+WHERE brandCode IS NULL
+GROUP BY brandCode;
+
+
+#Report: 620
+SELECT 
+	COUNT(*) AS null_count, 
+	category
+FROM mysql.brand
+WHERE category IS NULL
+GROUP BY category;
+
+
+#Report: 2600
+SELECT 
+	COUNT(*) AS null_count, 
+	categoryCode
+FROM mysql.brand
+WHERE categoryCode IS NULL
+GROUP BY categoryCode;
+```
+
+**Summary of Data Issues in the "brands" Table:**
+
+Null Values in "topBrand":
+Total count: 2448
+
+Null Values in "brandCode":
+Total count: 936
+
+Null Values in "category":
+Total count: 620
+
+Null Values in "categoryCode":
+Total count: 2600
+
+These data issues indicate the presence of null values in specific columns of the "brands" table in the database.
+
+**Verify duplicate records**
+```sql
+# Identify Duplicate Records
+# Report: NULL
+SELECT barcode, COUNT(*) AS duplicate_count
+FROM your_table
+GROUP BY barcode
+HAVING COUNT(*) > 1;
+```
+No duplicate record is detected.
+
+
+## Fourth: Communicate with Stakeholders
+
+
+Dear Busness Leader,
+
+I hope this message finds you well. I wanted to discuss some important observations regarding the data we have been working with. As a data analyst, I have been conducting various checks to assess the quality of the data and have come across some significant issues that I believe are important to address.
+
+**Data Quality Issues: Missing Data**
+
+I have loaded the JSON data into the database and performed several checks to assess the data quality. These checks include identifying null values, detecting conflicting information, and validating the data format. During this process, I have identified a concerning problem of missing data within the dataset. Specifically, I have noticed that a considerable number of rows in the brand, receipts, and users data do not contain important information such as "topBrand", "brandCode", "category", and "categoryCode". Consequently, the corresponding columns in our database have null values. To illustrate the magnitude of the issue, more than half of the "topBrand" values (2600 out of 4668) and "categoryCode" values (2448 out of 4668) are null.
+
+**Resolving the Data Quality Issues: Additional Information Required**
+
+To resolve these data quality issues, I believe it is crucial to gather additional information and context. Understanding the reasons behind the missing data is important; we need to determine whether it is an expected outcome or a result of data collection or extraction processes. Moreover, knowing the criteria or rules used to determine the values for "topBrand", "brandCode", "category", and "categoryCode" would greatly assist us in addressing the missing data problem. For example, I have observed that in most cases, "brandCode" can be derived from the "name" attribute, which doesn't have null values. These insights could potentially help us fill in the missing values.
+
+**Handling Test Information**
+
+Additionally, I have noticed that some of the attributions in brands include test information like "TEST BRANDCODE @1597342520277". I would appreciate clarification on whether this test information should be included in the final table or if any changes need to be made.
+
+**Optimizing Data Assets: Gathering Additional Information**
+
+Additionally, I would like to gather some information to optimize our data assets and enhance query efficiency.
+
+Business Goal and Focus: To align our efforts with the business objectives, I would like to understand which specific information or details regarding customer receipt transactions are of utmost interest to you. By identifying the key areas of focus, we can tailor our data analysis and reporting to provide the most valuable insights that align with your goals.
+
+Time Scope of Data Retrieval: It would be helpful to know the typical time scope or range within which you usually retrieve or access the data. This information will assist us in optimizing data retrieval strategies and designing efficient queries that align with your preferred time frames. Understanding the specific time periods of interest will enable us to streamline data management processes and improve query performance.
+
+By addressing these questions, we can enhance the overall performance of our data assets, ensure that our analyses are aligned with your business objectives, and optimize data management practices.
+
+**Understanding "bonusPointsEarned" and "pointsEarned"**
+
+Lastly, I have a specific question regarding the columns "bonusPointsEarned" and "pointsEarned". From the data I have analyzed, these two concepts seem to be very similar, almost identical. However, I believe there might be subtle differences and underlying activities behind each of these columns. It would be immensely helpful if you could provide an explanation to help us better understand these differences. This understanding will enable our data analysts to utilize these columns more rigorously in their analyses.
+
+Thank you for your time and attention to these matters. Should you have any questions or require further clarification, please feel free to reach out to me.
+
+Best regards,
+Haoming Liu
+
+
+
+
+
