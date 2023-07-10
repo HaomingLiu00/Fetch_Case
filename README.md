@@ -89,15 +89,25 @@ import models
 import json
 import sql_constant
 
+# Import necessary libraries and modules
+
 
 def brand_handler(path):
+    # Create table if it doesn't exist
     cursor.execute(sql_constant.brand_create_table_query)
+
+    # Open and read the JSON file
     with open(path, "r") as file:
         for line in file:
+            # Load JSON data
             json_data = json.loads(line)
+
+            # Create Brand object
             brand = models.Brand(json_data)
+
+            # Prepare values for insertion
             values = (
-                brand._id,
+                brand.brandId,
                 brand.barcode,
                 brand.brandCode,
                 brand.category,
@@ -107,25 +117,33 @@ def brand_handler(path):
                 brand.name,
                 brand.topBrand
             )
+
+            # Execute SQL insert query
             cursor.execute(sql_constant.brand_insert_query, values)
 
-    # 提交事务
+    # Commit the transaction
     connection.commit()
 
-    # 关闭游标和连接
+    # Close the cursor and connection
     cursor.close()
     connection.close()
 
 
 if __name__ == "__main__":
+    # Establish a connection to the database
     connection = pymysql.connect(
         host='localhost',
         user='root',
         password='my_password',
         database='mysql'
     )
+
+    # Create a cursor object
     cursor = connection.cursor()
+
+    # Call the brand_handler function with the path to the JSON file
     brand_handler("./data/brands.json")
+
 ```
 
 
