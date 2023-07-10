@@ -310,11 +310,15 @@ I hope this message finds you well. I wanted to discuss some important observati
 
 **Data Quality Issues: Missing Data**
 
-I have loaded the JSON data into the database and performed several checks to assess the data quality. These checks include identifying null values, detecting conflicting information, and validating the data format. During this process, I have identified a concerning problem of missing data within the dataset. Specifically, I have noticed that a considerable number of rows in the brand, receipts, and users data do not contain important information such as "topBrand", "brandCode", "category", and "categoryCode". Consequently, the corresponding columns in our database have null values. To illustrate the magnitude of the issue, more than half of the "topBrand" values (2600 out of 4668) and "categoryCode" values (2448 out of 4668) are null.
+Upon loading the JSON data into our database and conducting thorough checks, I have identified a concerning problem of missing data within the dataset. Specifically, I have noticed that a considerable number of rows in the brand, receipts, and users data do not contain important information such as "topBrand", "brandCode", "category", and "categoryCode". Consequently, the corresponding columns in our database have null values. To illustrate the magnitude of the issue, more than half of the "topBrand" values (2600 out of 4668) and "categoryCode" values (2448 out of 4668) are null.
 
 **Resolving the Data Quality Issues: Additional Information Required**
 
-To resolve these data quality issues, I believe it is crucial to gather additional information and context. Understanding the reasons behind the missing data is important; we need to determine whether it is an expected outcome or a result of data collection or extraction processes. Moreover, knowing the criteria or rules used to determine the values for "topBrand", "brandCode", "category", and "categoryCode" would greatly assist us in addressing the missing data problem. For example, I have observed that in most cases, "brandCode" can be derived from the "name" attribute, which doesn't have null values. These insights could potentially help us fill in the missing values.
+To resolve these data quality issues, it is crucial to gather additional information and context. 
+
+Understanding the reasons behind the missing data is important; we need to determine whether it is a result of data collection or extraction processes. 
+
+Moreover, knowing the criteria or rules used to determine the values for "topBrand", "brandCode", "category", and "categoryCode" would greatly assist us in addressing the missing data problem. For example, I have observed that in most cases, "brandCode" can be derived from the "name" attribute, which doesn't have null values. These insights could potentially help us fill in the missing values.
 
 **Handling Test Information**
 
@@ -322,11 +326,11 @@ Additionally, I have noticed that some of the attributions in brands include tes
 
 **Optimizing Data Assets: Gathering Additional Information**
 
-Additionally, I would like to gather some information to optimize our data assets and enhance query efficiency.
+I would like to gather some information to optimize our data assets and enhance query efficiency.
 
 **Business Goal and Focus:** To align our efforts with the business objectives, I would like to understand which specific information or details regarding customer receipt transactions are of utmost interest to you. By identifying the key areas of focus, we can tailor our data analysis and reporting to provide the most valuable insights that align with your goals.
 
-**Time Scope of Data Retrieval:** It would be helpful to know the typical time scope or range within which you usually retrieve or access the data. This information will assist us in optimizing data retrieval strategies and designing efficient queries that align with your preferred time frames. Understanding the specific time periods of interest will enable us to streamline data management processes and improve query performance.
+**Time Scope of Data Retrieval:** It would be helpful to know the typical time scope or range within which you usually access the data. This information will assist us in optimizing data retrieval strategies and designing efficient queries that align with your preferred time frames. 
 
 By addressing these questions, we can enhance the overall performance of our data assets, ensure that our analyses are aligned with your business objectives, and optimize data management practices.
 
