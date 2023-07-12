@@ -294,7 +294,7 @@ These data issues indicate the presence of null values in specific columns of th
 # Identify Duplicate Records
 # Report: NULL
 SELECT barcode, COUNT(*) AS duplicate_count
-FROM your_table
+FROM mysql.brand
 GROUP BY barcode
 HAVING COUNT(*) > 1;
 ```
