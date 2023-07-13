@@ -237,7 +237,7 @@ brand_insert_query = '''
 **Detect Null Vaules**
 ```sql
 # Null Value
-#Report: 2448
+#Report: 612
 SELECT 
 	COUNT(*) AS null_count, 
 	topBrand
@@ -246,7 +246,7 @@ WHERE topBrand IS NULL
 GROUP BY topBrand;
 
 
-#Report: 936
+#Report: 234
 SELECT 
 	COUNT(*) AS null_count, 
 	brandCode
@@ -255,7 +255,7 @@ WHERE brandCode IS NULL
 GROUP BY brandCode;
 
 
-#Report: 620
+#Report: 155
 SELECT 
 	COUNT(*) AS null_count, 
 	category
@@ -264,7 +264,7 @@ WHERE category IS NULL
 GROUP BY category;
 
 
-#Report: 2600
+#Report: 650
 SELECT 
 	COUNT(*) AS null_count, 
 	categoryCode
@@ -276,16 +276,16 @@ GROUP BY categoryCode;
 **Summary of Data Issues in the "brands" Table:**
 
 Null Values in "topBrand":
-Total count: 2448
+Total count: 612
 
 Null Values in "brandCode":
-Total count: 936
+Total count: 234
 
 Null Values in "category":
-Total count: 620
+Total count: 155
 
 Null Values in "categoryCode":
-Total count: 2600
+Total count: 650
 
 These data issues indicate the presence of null values in specific columns of the "brands" table in the database.
 
@@ -310,7 +310,7 @@ I hope this message finds you well. I wanted to discuss some important observati
 
 **Data Quality Issues: Missing Data**
 
-Upon loading the JSON data into our database and conducting thorough checks, I have identified a concerning problem of missing data within the dataset. Specifically, I have noticed that a considerable number of rows in the brand, receipts, and users data do not contain important information such as "topBrand", "brandCode", "category", and "categoryCode". Consequently, the corresponding columns in our database have null values. To illustrate the magnitude of the issue, more than half of the "topBrand" values (2600 out of 4668) and "categoryCode" values (2448 out of 4668) are null.
+Upon loading the JSON data into our database and conducting thorough checks, I have identified a concerning problem of missing data within the dataset. Specifically, I have noticed that a considerable number of rows in the brand, receipts, and users data do not contain important information such as "topBrand", "brandCode", "category", and "categoryCode". Consequently, the corresponding columns in our database have null values. To illustrate the magnitude of the issue, more than half of the "topBrand" values (650 out of 1167) and "categoryCode" values (612 out of 1167) are null.
 
 **Resolving the Data Quality Issues: Additional Information Required**
 
