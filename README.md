@@ -292,7 +292,6 @@ These data issues indicate the presence of null values in specific columns of th
 **Verify duplicate records**
 ```sql
 # Identify Duplicate Records
-# Report: NULL
 SELECT barcode, COUNT(*) AS duplicate_count
 FROM mysql.brand
 GROUP BY barcode
