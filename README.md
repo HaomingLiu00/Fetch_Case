@@ -298,7 +298,6 @@ FROM mysql.brand
 GROUP BY barcode
 HAVING COUNT(*) > 1;
 ```
-No duplicate record is detected.
 
 
 ## Part 4: Communicate with Stakeholders
