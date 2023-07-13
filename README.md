@@ -297,6 +297,14 @@ FROM mysql.brand
 GROUP BY barcode
 HAVING COUNT(*) > 1;
 ```
+The result reports that there are 7 duplicate records for barcode.
+'511111504139','2'
+'511111704140','2'
+'511111504788','2'
+'511111004790','2'
+'511111204923','2'
+'511111605058','2'
+'511111305125','2'
 
 
 ## Part 4: Communicate with Stakeholders
