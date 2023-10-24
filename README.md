@@ -1,26 +1,44 @@
 ## Table of Contents:
 
 **Structured Relational Data Model Design**
+
 1.1 Diagram Description
+
 1.2 Tables and Primary Key Identification
+
 1.3 Joinable Keys Overview
+
 1.4 Potential Index & Partition Optimization
+
 1.5 Other Considerations
 
+
 **Data Query Execution**
+
 2.1 Query for Top 5 Brands
+
 2.2 Average Spend Analysis
 
+
 **Data Quality Evaluation**
+
 3.1 Initial Data Review
+
 3.2 Data Quality Assurance Steps
+
 - 3.2.1 From JSON to Database Tables
+  
 - 3.2.2 Data Quality Checks with MySQL
+  
 
 **Stakeholder Communication**
+
 4.1 Communicating Data Quality Issues
+
 4.2 Request for Additional Information
+
 4.3 Understanding Specific Data Attributes
+
 
 
 
