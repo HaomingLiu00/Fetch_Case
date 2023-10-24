@@ -1,6 +1,3 @@
-# Fetch_Case
-
-Thank you for reviewing my coding challenge! You can find all the answers and code in the provided readme file, which is also available in this repository. I used MySQL and Python to complete this challenge.
 
 ## Part 1: Diagram a New Structured Relational Data Model
 I diagram this data model as below:
