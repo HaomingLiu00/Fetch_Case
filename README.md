@@ -1,6 +1,6 @@
 ## Table of Contents:
 
-**Structured Relational Data Model Design**
+**Part 1: Structured Relational Data Model Design**
 
 1.1 Diagram Description
 
@@ -13,14 +13,14 @@
 1.5 Other Considerations
 
 
-**Data Query Execution**
+**Part 2: Data Query Execution**
 
 2.1 Query for Top 5 Brands
 
 2.2 Average Spend Analysis
 
 
-**Data Quality Evaluation**
+**Part 3: Data Quality Evaluation**
 
 3.1 Initial Data Review
 
@@ -31,7 +31,7 @@
 - 3.2.2 Data Quality Checks with MySQL
   
 
-**Stakeholder Communication**
+**Part 4: Stakeholder Communication**
 
 4.1 Communicating Data Quality Issues
 
